@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                            https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!--通过bean这样的标签定义bean对象，String Bean容器是通过id来进行管理的
+         id想当于bean的名称，Spring可以通过id找到bean对象
+
+         默认是单例模式-->
+    <!-- 通过无参的构造方法，创建一个对象，如果该类型没有无参的构造方法，就会报错-->
+    <!--构造方法注入-->
+    <bean id = "bit" class="java.lang.String">
+        <constructor-arg value="小可爱" />
+    </bean>
+
+    <!--<bean class="java.lang.String"></bean>--> <!--生成了一个id为sting的字符串的对象-->
+
+    <!--构造方法注入-->
+    <bean id="d1" class="frank.Duck">
+        <constructor-arg value="小可爱" />
+    </bean>
+
+    <!--属性注入-->
+    <bean id="d2" class="frank.Duck">
+        <property name="name" ref="s1"/>  <!--ref 获取的是下面的id为s1的bean对象，获取到她的value-->
+        <property name="age" value="12"/>
+    </bean>
+
+    <!--这个就是里面又构造方法 constructor
+         里面的name是和构造方法所构造的一样的-->
+    <bean id="d3" class="frank.Duck2">
+        <constructor-arg name="n" value="xxx"/>
+        <constructor-arg name="a" value="23"/>
+    </bean>
+
+
+    <bean id="s1" class="java.lang.String">
+        <constructor-arg value="muyazi"/>
+    </bean>
+
+    <!--属性注入-->
+    <bean id="dk" class="frank.Duck3">
+        <property name="name" value="beijingkaoya"/>
+        <property name="age" value="2"/>
+        <property name="next" ref="dk2"/>
+    </bean>
+
+    <bean id="dk2" class="frank.Duck3">
+        <property name="name" value="beijingkaoya"/>
+        <property name="age" value="2"/>
+        <property name="next" ref="dk3"/>  <!--ref的参数就是bean的id名称-->
+    </bean>
+
+    <bean id="dk3" class="frank.Duck3">
+        <property name="name" value="beijingkaoya"/>
+        <property name="age" value="2"/>
+    </bean>
+
+    <bean id="dk_1" class="frank.Duck">
+        <property name="name" value="bei"/>
+        <property name="age" value="2"/>
+
+    </bean>
+
+    <bean id="dk_2" class="frank.Duck">
+        <property name="name" value="beijing"/>
+        <property name="age" value="3"/>
+    </bean>
+
+    <bean id="dk_3" class="frank.Duck">
+        <property name="name" value="beijingkaoya"/>
+        <property name="age" value="7"/>
+    </bean>
+
+    <bean id="shop" class="frank.Shop">
+        <property name="list">
+            <list>
+                <ref bean="dk_1"/>  <!--ref的参数就是bean的id名称-->
+                <ref bean="dk_2"/>
+                <ref bean="dk_3"/>
+            </list>
+        </property>
+    </bean>
+
+</beans>
