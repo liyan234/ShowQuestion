@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                      http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1"
+         metadata-complete="true">
+
+  <servlet>
+    <!--与servlet-mapping中的name相呼应-->
+    <servlet-name> 1</servlet-name>
+    <!--前端对应的url过来与在那个文件中代码相对应-->
+    <servlet-class> </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name> 1</servlet-name>
+    <!--与前端所对应的url-->
+    <url-pattern> </url-pattern>
+  </servlet-mapping>
+</web-app>
