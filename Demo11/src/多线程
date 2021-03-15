@@ -1,0 +1,23 @@
+
+1. 多线程问题
+   原因 ：多个线程对共享变量的操作
+   底层原因 ： 原子性 有序性 可见性
+   解决方式 ： 对共享变量加锁 synchronized lock体系
+      synchronized 作用  使用场景
+        1. 对象头加锁
+        2. 多个线程同步互斥
+      原理
+      JVM锁优化
+
+2. 多线程提高效率的方式
+   保证安全的情况下 尽可能的提高效率
+     方式1 ： 把加锁细粒度化
+             具体方法 ： 读写分离
+             没有安全问题的情况下(没有共享变量的多线程操作) 不需要加锁
+             读 ：使用volatile ——> 保证可见性
+             写 ：使用synchronized 或者 lock加锁
+     方式2 ；
+3. 高阶api的使用和理解
+    线程池，ConcurrentHashMap juc包下的 (Lock体系, ThreadLock 原子性并发包下的类,
+    其他如Semaphore, CountDownLatch, AQS等)
+    CAS
